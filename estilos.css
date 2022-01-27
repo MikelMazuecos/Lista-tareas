@@ -1,0 +1,128 @@
+:root{
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.completada{
+    text-decoration: line-through red 2px;
+    color: gray;
+}
+
+img{
+    position: fixed;
+    width: 100vw;
+    height: 40vh;
+    object-fit: cover;
+    z-index: 0;
+    top: 0;
+}
+
+h1{
+    position: relative;
+    top: 10vh;
+    left: 35vw;
+    width: 20%;
+    z-index: 2;
+    color: white;
+}
+
+h2{
+    color: white;
+    z-index: 2;
+    position: relative;
+    top: 12vh;
+    left: 35vw;
+    width: 20%;
+}
+
+#cajaPrincipal{
+    position: relative;
+    top: 10vh;
+    left: 35vw;
+    width: 30%;
+    background-color: white;
+    padding: 2%;
+    border-radius: 7px;
+    z-index: 2;
+}
+
+#insertar input{
+    position: relative;
+    top: 10vh;
+    left: 35vw;
+    width: 30%;
+    padding: 2%;
+    margin-bottom: 2%;   
+    border-radius: 7px; 
+    z-index: 2;
+}
+
+#buscador input{
+    position: relative;
+    top: 12vh;
+    left: 35vw;
+    width: 30%;
+    padding: 1%;
+    padding-left: 2%;
+    margin-bottom: 3%;   
+    border-radius: 7px; 
+    z-index: 2;
+}
+
+p{
+    padding-top: 4%;
+    padding-bottom: 4%;
+    border-bottom: 1px solid lightgrey;
+}
+
+body{
+    background-color: rgb(241, 239, 239);
+}
+
+button{
+    border: 1px solid black;
+    margin: 2px;
+    outline:none;
+    background-color: white;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#cajaPrincipal > button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+#filtro{
+    top: 0px;
+    position: fixed;
+    width: 100vw;
+    height: 40vh;
+    background: linear-gradient(to left, rgb(56, 56, 255), rgb(182, 96, 182));
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.slide-fade-leave-active, .slide-fade-enter-active{
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-leave-to,.slide-fade-enter-from{
+    transform: translateX(10px);
+    opacity: 0;
+}
+
+span{
+    margin-left: 8px;
+}
+
+
+

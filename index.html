@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="index.js"></script>
+    <link href="estilos.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <h1>TO DO</h1>
+        <img src='imagen.jpg'>
+        <div id="filtro"></div>
+        <div id="insertar">
+            <input v-model="descripcion" @keyup.enter="insertar_tarea" placeholder="Añadir tarea...">
+        </div>
+        <h2>SEARCH</h2>
+        <div id="buscador">
+            <input v-model="busqueda" @keyup="buscar" placeholder="Buscar...">
+        </div>
+        <div id="cajaPrincipal">
+            <transition-group name="slide-fade">
+            <p v-for = "(tarea,index) in tareasTerminadas" v-bind:key="tarea" :class="{completada:tarea.completado}">
+                <span v-on:click="cambiar_estado(index)">{{tarea.descripcion}}</span>
+                <button v-on:click="prioridadAlta(index)">Alta</button>
+                <button v-on:click="prioridadMedia(index)">Media</button>
+                <button v-on:click="prioridadBaja(index)">Baja</button>
+                <button v-on:click="borrar(index)">X</button>
+                <span>prioridad:{{tarea.prioridad == 0 ? "alta":tarea.prioridad == 1 ? "media":"baja"}}</span>
+                <span>creada hace {{fechaActual(index)}} minutos</span>
+            </p>
+            </transition-group>
+            <p v-if="tareas.length == 0">No hay tareas en la lista</p>
+            <p v-else-if="tareas.length == 1">Hay {{tareas.length}} tarea en la lista de tareas y {{tareaTerminada}} completada</p>
+            <p v-else>Hay {{tareas.length}} tareas en la lista de tareas y {{tareaTerminada}} completadas</p>
+            <br>
+            <button v-on:click="mostrarTodas">All</button>
+            <button v-on:click="mostrarTerminadas">Completed</button>
+            <button v-on:click="mostrarSinTerminar">Active</button>
+            <button v-on:click="borrarCompletadas()">Clear completed</button>
+        </div>
+    </div>
+</body>
+</html>
